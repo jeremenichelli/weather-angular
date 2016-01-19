@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+</head>
+<body ng-app="weatherApp">
+    <header class="app--header">
+        <h1>
+            <a href="#/">Weather</a>
+        </h1>
+        <a href="#/settings">Settings</a>
+    </header>
+
+    <main class="app--main">
+        <div ng-view></div>
+    </main>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjk--hOch2qYbW4eKgeY6jukYs-DE70VI"></script>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/services/cities.js"></script>
+
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/settingsController.js"></script>
+    <script src="js/controllers/forecastController.js"></script>
+</body>
+</html>

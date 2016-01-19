@@ -1,0 +1,8 @@
+<input type="text" ng-keydown="listCities($event)"/>
+
+<ul ng-repeat="city in cities" ng-show="cities.length">
+	<li ng-click="toForecast($event)"
+		data-lat="{{ city.geometry.location.lat }}"
+		data-lng="{{ city.geometry.location.lng }}">
+		{{ city.formatted_address }}</li>
+</ul>

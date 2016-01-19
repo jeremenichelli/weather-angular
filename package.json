@@ -1,0 +1,29 @@
+{
+  "name": "weather-angular",
+  "version": "1.0.0",
+  "description": "Weather app built with Angular",
+  "main": "index.html",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremenichelli/weather-angular.git"
+  },
+  "keywords": [
+    "angular",
+    "weather",
+    "web",
+    "app"
+  ],
+  "author": "Jeremias Menichelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeremenichelli/weather-angular/issues"
+  },
+  "homepage": "https://github.com/jeremenichelli/weather-angular#readme",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-route": "^1.4.8"
+  }
+}
