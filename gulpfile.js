@@ -12,13 +12,13 @@ var paths = {
 			'node_modules/angular/angular.js',
 			'node_modules/angular-route/angular-route.js',
 			'src/app/app.js',
-			'src/filters/*.js',
-			'src/services/*.js',
-			'src/controllers/*.js'
+			'src/app/filters/*.js',
+			'src/app/services/*.js',
+			'src/app/controllers/*.js'
 		]
 	},
 	output: {
-		app: '/assets/scripts/'
+		app: 'assets/scripts/'
 	}
 };
 
