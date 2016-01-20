@@ -1,7 +1,10 @@
+// get units from storage and set default
+window.sessionStorage.setItem('units', window.sessionStorage.getItem('units') === 'us' ? 'us' : 'si');
+
 // weather app instance
 var app = angular.module('weatherApp', [ 'ngRoute' ]);
 
-// global geocoder isntance
+// global geocoder instance
 var geocoder = new google.maps.Geocoder();
 
 app.config(['$routeProvider', function ($routeProvider) {

@@ -24,7 +24,7 @@ app.controller('homeController', [ '$scope', '$window', 'cities', function($scop
             } else {
                 $scope.cities = [];
             }
-        }, 150);
+        }, 100);
     };
 
     /*
@@ -33,6 +33,10 @@ app.controller('homeController', [ '$scope', '$window', 'cities', function($scop
      */
     $scope.toForecast = function(e) {
         var element = e.target;
+
+        // store city name
+        window.sessionStorage.setItem('city', element.textContent);
+
         // redirect to forecast view
         $window.location.href = '#/forecast/' + element.dataset.lat + '/' + element.dataset.lng;
     };

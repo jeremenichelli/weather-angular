@@ -1,2 +1,44 @@
 <h2>Forecast</h2>
-<p>{{ status }}</p>
+
+<div class="currently">
+    <img class="weather-currently-icon" ng-src="assets/img/{{ weather.currently.icon }}.png"
+         alt="{{ weather.currently.summary }}" onload="this.style.opacity=1;">
+    <h1 class="weather-place">{{ place }}</h1>
+    <p class="weather-currently-temp">
+        <span class="weather-currently-temp-value">
+            <span class="c-temp" ng-show="units === 'si'">{{ weather.currently.temperature | round }}</span>
+            <span class="f-temp" ng-show="units === 'us'">{{ weather.currently.temperature | fahrenheit }}</span>
+        </span>
+        <a href="#" ng-click="changeUnits()" class="units-switch">
+            <span class="c">C</span>/<span class="f">F</span>
+        </a>
+    </p>
+    <p class="weather-currently-summary">{{ weather.currently.summary }}</p>
+    <p class="weather-currently-humidity">
+        <span class="weather-currently-humidity-label">Humidity</span>
+        <span class="weather-currently-humidity-value">{{ weather.currently.humidity | percent }}</span>%
+    </p>
+    <p class="weather-currently-precipitation">
+        <span class="weather-currently-precipitation-label">Precipitation</span>
+        <span class="weather-currently-precipitation-value">{{ weather.currently.precipProbability | percent }}</span>%
+    </p>
+</div>
+<ul class="weather-daily-report" ng-repeat="day in weather.daily.data | limitTo:4:1">
+    <li>
+        <h3 class="weather-daily-day"></h3>
+        <img class="weather-daily-icon" ng-src="assets/img/{{ day.icon }}.png"
+             alt="{{ day.summary }}" onload="this.style.opacity=1;">
+        <p class="weather-daily-temp weather-daily-temp-min">
+            <span class="weather-daily-temp-value">
+                <span class="c-temp" ng-show="units === 'si'">{{ day.temperatureMin | round }}</span>
+                <span class="f-temp" ng-show="units === 'us'">{{ day.temperatureMin | fahrenheit }}</span>
+            </span>
+        </p>
+        <p class="weather-daily-temp weather-daily-temp-max">
+            <span class="weather-daily-temp-value">
+                <span class="c-temp" ng-show="units === 'si'">{{ day.temperatureMax | round }}</span>
+                <span class="f-temp" ng-show="units === 'us'">{{ day.temperatureMax | fahrenheit }}</span>
+            </span>
+        </p>
+    </li>
+</ul>
