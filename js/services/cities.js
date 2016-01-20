@@ -18,7 +18,7 @@ app.factory('cities', [ function() {
 
 	            fn(results);
 	        } else {
-	        	fn([]);
+	        	fn(null);
 	        }
 	    });
 	};
