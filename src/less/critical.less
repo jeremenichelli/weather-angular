@@ -1,0 +1,137 @@
+@import '_normalize.less';
+@import '_variables.less';
+
+html {
+    box-sizing: border-box;
+}
+
+* {
+    box-sizing: border-box;
+
+    &:before, &:after {
+        box-sizing: border-box;        
+    }
+}
+
+body {
+    background-color: @color--background--medium;
+    color: @color--text-dark;
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- INITIAL LOADING STATE --- */
+.app--logo img,
+.app--name,
+.app--main {
+    opacity: 0;
+    transition: opacity .25s ease .15s;
+    visibility: hidden;
+}
+
+.loaded {
+
+    .app--logo img,
+    .app--name,
+    .app--main {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .app--spinner {
+        opacity: 0;
+        transform: translate3d(-50%, -50%, 0);
+        visibility: hidden;
+    }
+}
+
+/* --- SPINNER --- */
+.app--spinner {
+    height: 40px;
+    left: 50%;
+    position: fixed;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    transition: transform .25s ease;
+    width: 40px;
+}
+
+.double-bounce1,
+.double-bounce2 {
+    animation: bounce 2s infinite ease-in-out;
+    background-color: #333;
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    opacity: 0.25;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.double-bounce2 {
+  animation-delay: -1s;
+}
+
+@keyframes bounce {
+    0%, 100% { 
+        transform: scale(0);
+    }
+
+    50% { 
+        transform: scale(1);
+    }
+}
+
+/* --- HEADER --- */
+.app--header {
+    background-color: @color--background--light;
+}
+
+.app--logo {
+    background-color: @color--main;
+    display: inline-block;
+    margin: 0 12px 0 0;
+    padding: 4px;
+    height: 56px;
+    width: 56px;
+    vertical-align: middle;
+}
+
+.app--name {
+    color: @color--text-dark;
+    display: inline-block;
+    font-size: 1.77777778em;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 56px;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+/* --- LAYOUT --- */
+.app--main {
+    margin: 0 auto;
+    max-width: 750px;
+    padding: 30px;
+}
+
+/* --- SEARCH --- */
+.search--input {
+    border-width: 0;
+    font-size: 1em;
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+
+    &:focus {
+        box-shadow: none;
+        outline-width: 0;
+    }
+}
+
+

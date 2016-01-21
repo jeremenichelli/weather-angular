@@ -1,28 +1,35 @@
-// get units from storage and set default
-window.sessionStorage.setItem('units', window.sessionStorage.getItem('units') === 'us' ? 'us' : 'si');
+// build app and expose as global
+window.app = (function(_win, _doc) {
+    'use strict';
 
-// weather app instance
-var app = angular.module('weatherApp', [ 'ngRoute' ]);
+    _win.addEventListener('load', function() {
+        _doc.body.classList.add('loaded');
+    });
 
-// global geocoder instance
-var geocoder = new google.maps.Geocoder();
+    // get units from storage and set default
+    _win.localStorage.setItem('units', _win.localStorage.getItem('units') === 'us' ? 'us' : 'si');
 
-app.config(['$routeProvider', function ($routeProvider) {
+    // weather app instance
+    var app = angular.module('weatherApp', [ 'ngRoute' ]);
 
-    $routeProvider
-        .when('/', {
-            templateUrl: 'views/home.html',
-            controller: 'homeController'
-        })
-        .when('/settings', {
-            templateUrl: 'views/settings.html',
-            controller: 'settingsController'
-        })
-        .when('/forecast/:lat/:lng', {
-            templateUrl: 'views/forecast.html',
-            controller: 'forecastController'
-        })
-        .otherwise({
-            redirectTo: '/'
-        });
-}]);
+    app.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider
+            .when('/', {
+                templateUrl: 'views/home.html',
+                controller: 'homeController'
+            })
+            .when('/settings', {
+                templateUrl: 'views/settings.html',
+                controller: 'settingsController'
+            })
+            .when('/forecast/:lat/:lng', {
+                templateUrl: 'views/forecast.html',
+                controller: 'forecastController'
+            })
+            .otherwise({
+                redirectTo: '/'
+            });
+    }]);
+
+    return app;
+})(window, document);

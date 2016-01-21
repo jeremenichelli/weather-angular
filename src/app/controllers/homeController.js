@@ -24,7 +24,7 @@ app.controller('homeController', [ '$scope', '$window', 'cities', function($scop
             } else {
                 $scope.cities = [];
             }
-        }, 100);
+        }, 50);
     };
 
     /*
@@ -33,6 +33,8 @@ app.controller('homeController', [ '$scope', '$window', 'cities', function($scop
      */
     $scope.toForecast = function(e) {
         var element = e.target;
+
+        document.body.classList.add('loading');
 
         // store city name
         window.sessionStorage.setItem('city', element.textContent);

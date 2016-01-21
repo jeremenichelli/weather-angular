@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+
+    <!-- inject:css -->
+    <!-- endinject -->
+</head>
+<body ng-app="weatherApp">
+    <header class="app--header">
+        <a href="#/" class="app--logo">
+            <img src="assets/img/ic_flash_on_white_48px.svg" alt="">
+        </a>
+        <h1 class="app--name">Weather</h1>
+    </header>
+
+    <main class="app--main">
+        <div ng-view></div>
+    </main>
+
+    <div class="app--spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+    </div>
+
+    <link rel="stylesheet" href="assets/styles/app.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300' rel='stylesheet' type='text/css'>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDjk--hOch2qYbW4eKgeY6jukYs-DE70VI"></script>
+    <script src="assets/scripts/app.js"></script>
+</body>
+</html>

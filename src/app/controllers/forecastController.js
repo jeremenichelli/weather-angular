@@ -4,15 +4,16 @@ app.controller('forecastController', [ '$scope', '$routeParams', 'forecast',
         var lat = $routeParams.lat,
             lng = $routeParams.lng;
 
-        $scope.units = window.sessionStorage.getItem('units');
+        $scope.units = window.localStorage.getItem('units');
 
         /*
 	     * Toggle units that are shown
 	     * @method $scope.changeUnits
 	     */
-        $scope.changeUnits = function() {
+        $scope.changeUnits = function(e) {
+            e.preventDefault();
         	$scope.units = $scope.units === 'us' ? 'si' : 'us';
-        	window.sessionStorage.setItem('units', $scope.units);
+        	window.localStorage.setItem('units', $scope.units);
         };
 
         // call forecast service and attach result to $scope
@@ -20,5 +21,7 @@ app.controller('forecastController', [ '$scope', '$routeParams', 'forecast',
             .success(function(data) {
             	$scope.place = window.sessionStorage.getItem('city');
                 $scope.weather = data;
+
+                document.body.classList.remove('loading');
             })
 }]);

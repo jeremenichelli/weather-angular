@@ -1,5 +1,5 @@
 app.filter('percent', function() {
 	return function(num) {
-		return num * 100;
+		return Math.round(num * 100);
 	};
 });

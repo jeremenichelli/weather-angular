@@ -1,4 +1,6 @@
 app.factory('cities', [ function() {
+	// global geocoder instance
+	var geocoder = new google.maps.Geocoder();
 
 	/*
 	 * Returns array with city results from google Maps API service
