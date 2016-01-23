@@ -9,43 +9,25 @@ app.controller('homeController', [ '$scope', '$window', 'cities', function($scop
     $scope.cities = [];
 
     /*
-     * When user types list cities or navigate through results
-     * @method $scope.onSearchKey
+     * When user types list cities
+     * @method $scope.listCities
      */
-    $scope.onSearchKeyUp = function(e) {
-        // only trigger if not trying to navigate
-        if (e.which !== 40) {
-            var input = e.target;
+    $scope.listCities = function(e) {
+        var input = e.target;
 
-            // clear timer
-            clearTimeout(timer);
+        // clear timer
+        clearTimeout(timer);
 
-            // debounce key event
-            timer = setTimeout(function() {
-                if (input.value) {
-                    cities(input.value, function(data) {
-                        if (data.length && data.length !== 0) {
-                            $scope.cities = data;
-                        }
-                    });
-                }
-            }, 200);
-        }
-    };
-
-    /*
-     * When user types list cities or navigate through results
-     * @method $scope.onSearchKey
-     */
-    $scope.onSearchKeyDown = function(e) {
-        // only trigger if trying to navigate
-        if (e.which === 40) {
-            var results = document.getElementsByClassName('search--list-result');
-
-            if (results[0]) {
-                results[0].focus();
+        // debounce key event
+        timer = setTimeout(function() {
+            if (input.value) {
+                cities(input.value, function(data) {
+                    if (data.length && data.length !== 0) {
+                        $scope.cities = data;
+                    }
+                });
             }
-        }
+        }, 200);
     };
 
     /*
