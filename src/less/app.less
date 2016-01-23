@@ -1,5 +1,9 @@
 @import '_variables.less';
 
+p {
+    margin: 12px 0;
+}
+
 /* --- IN-APP LOADING STATE--- */
 .loading {
     
@@ -16,12 +20,258 @@
 
 /* --- SEARCH RESULT --- */
 .search--list {
-	font-size: 0.88888889em;
-	list-style: none;
-	margin: 0;
-	padding: 0;
+    background-color: @color--background--light;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    font-size: 0.88888889em;
+    list-style: none;
+    margin: -2px 0px 0px;
+    padding: 10px 12px 0px;
 }
 
 .search--list-result {
-	padding: 8px;
+    border-color: @color--accent-light;
+    border-style: solid;
+    border-width: 1px 0 0;
+    cursor: pointer;
+    padding: 12px 0;
+    position: relative;
+    transition: padding .25s ease;
+}
+
+.no-touch {
+
+    .search--list-result {
+
+        &:hover,
+        &:focus {
+            padding-left: 30px;
+
+            img {
+                opacity: 1;
+                transform: translateY(-50%) scale(1);
+            }
+        }
+
+        img {
+            height: 24px;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            transform: translateY(-50%) scale(.5);
+            transition: all .35s ease;
+            top: 50%;
+            width: 24px;
+        }
+    }   
+}
+
+.touch {
+
+    .search--list-result {
+
+        img {
+            display: none;
+        }
+    }
+}
+
+/* --- FORECAST VIEW --- */
+.card {
+    border-radius: 3px;
+    background-color: @color--background--light;
+    overflow: hidden;
+    padding: 25px;
+    text-align: center;
+
+    img {
+        opacity: 0;
+        transition: opacity .25s ease;
+        fill: @color--text-dark;
+    }
+}
+
+.weather-currently-icon {
+    display: block;
+    margin: 0 auto;
+    width: 175px;
+}
+
+.weather-place {
+    font-weight: 400;
+    font-size: 1.55555556em;
+    letter-spacing: -0.03em;
+}
+
+.weather-currently-temp,
+.weather-currently-summary {
+    font-size: 1.2222em;
+}
+
+.weather-currently-summary {
+    font-weight: 400;
+    margin: 0 0 0 15px;
+    text-transform: uppercase;
+}
+
+.units-switch {
+    color: @color--text-dark;
+    font-weight: 300;
+    text-decoration: none;
+
+    span {
+        color: @color--main;
+    }
+
+    &.active {
+
+        span {
+            color: #0288d1;
+        }
+    }
+}
+
+.si {
+
+    .c {
+        font-weight: 700;
+    }
+}
+
+.us {
+
+    .f {
+        font-weight: 700;
+    }
+}
+
+.weather-currently-humidity,
+.weather-currently-precipitation {
+    font-size: 1.2222em;
+}
+
+.weather-currently-humidity-value,
+.weather-currently-precipitation-value {
+    font-weight: 400;
+}
+
+.weather-currently-humidity-label,
+.weather-currently-precipitation-label {
+    text-transform: uppercase;
+}
+
+.weather-daily-day {
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.weather-daily-report {
+    list-style: none;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding: 0;
+
+    li {
+        float: left;
+        padding: 0 12px;
+        text-align: center;
+        width: 25%;
+    }
+}
+
+.weather-daily-temp {
+    margin-bottom: 0;
+}
+
+.weather-daily-temp-max {
+    font-weight: 400;
+}
+
+.f-temp,
+.c-temp {
+
+    &:after {
+        content: 'º'
+    }
+}
+
+@media (min-width: 769px) {
+
+    body {
+        font-size: 20px;
+    }
+
+    p {
+        margin: 9px 0;
+    }
+
+    .app--main {
+        padding: 50px;
+    }
+
+    .app--logo {
+        padding: 12px;
+        height: 72px;
+        width: 72px;
+    }
+
+    .app--name {
+        line-height: 72px;
+    }
+
+    .card {
+        padding: 50px;
+        text-align: left;
+    }
+
+    .weather-currently-icon {
+        float: left;
+        margin: 0 35px 0 0;
+    }
+
+    .weather-place {
+        margin: 0 0 5px;
+    }
+
+    .weather-currently-summary {
+        margin: 0 0 0 15px;
+    }
+
+    .weather-currently-temp,
+    .weather-currently-summary {
+        display: inline-block;
+    }
+
+    .weather-currently-humidity,
+    .weather-currently-precipitation {
+        font-size: 1em;
+    }
+
+    .weather-daily-temp {
+        display: inline-block;
+    }
+
+    .weather-daily-report {
+        margin-top: 50px;
+
+        li {
+            padding: 0 18px;
+        }
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 70px;
+        }
+    }
+
+    .weather-daily-temp {
+        margin: 20px 0 0;
+
+        + .weather-daily-temp {
+            margin-left: 10px;
+        }
+    }
+
 }

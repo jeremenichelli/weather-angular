@@ -9,6 +9,13 @@ window.app = (function(_win, _doc) {
     // get units from storage and set default
     _win.localStorage.setItem('units', _win.localStorage.getItem('units') === 'us' ? 'us' : 'si');
 
+    // detect if touch events are enable via Modernizr
+    if ('ontouchstart' in _win || _win.DocumentTouch && _doc instanceof DocumentTouch) {
+        _doc.body.classList.add('touch');
+    } else {
+        _doc.body.classList.add('no-touch');
+    }
+
     // weather app instance
     var app = angular.module('weatherApp', [ 'ngRoute' ]);
 

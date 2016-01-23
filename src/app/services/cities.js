@@ -1,29 +1,29 @@
 app.factory('cities', [ function() {
-	// global geocoder instance
-	var geocoder = new google.maps.Geocoder();
+    'use strict';
 
-	/*
-	 * Returns array with city results from google Maps API service
-	 * @method getCities
-	 */
-	var getCities = function(query, fn) {
-		geocoder.geocode({ 'address': query }, function(results, status) {
-	        if (status === google.maps.GeocoderStatus.OK) {
-	        	// filter only localities
-	            results = results.filter(function(place) {
-	                // parse coords
-	                place.geometry.location.lat = place.geometry.location.lat();
-	                place.geometry.location.lng = place.geometry.location.lng();
+    // global geocoder instance
+    var geocoder = new google.maps.Geocoder();
 
-	                return ~place.types.indexOf('locality');
-	            });
+    /*
+     * Returns array with city results from google Maps API service
+     * @method getCities
+     */
+    var getCities = function(query, fn) {
+        geocoder.geocode({ 'address': query }, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                // filter only localities
+                results = results.filter(function(place) {
+                    // parse coords
+                    place.geometry.location.lat = place.geometry.location.lat();
+                    place.geometry.location.lng = place.geometry.location.lng();
 
-	            fn(results);
-	        } else {
-	        	fn(null);
-	        }
-	    });
-	};
+                    return ~place.types.indexOf('locality');
+                });
 
-	return getCities;
+                fn(results);
+            }
+        });
+    };
+
+    return getCities;
 }]);

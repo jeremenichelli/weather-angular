@@ -22,7 +22,7 @@ var paths = {
 		critical: 'assets/styles/critical.css',
 		views: 'src/app/views/*.html',
 		html: 'src/main.html',
-		js: 'src/app/*.js'
+		js: 'src/app/**/*.js'
 	},
 	output: {
 		app: 'assets/scripts/',
