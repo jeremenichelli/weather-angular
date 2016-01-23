@@ -60,6 +60,7 @@ gulp.task('build:less', function() {
 
 	return gulp.src(paths.src.less)
 		.pipe($.less())
+		.pipe($.autoprefixer([ 'Firefox > 30', 'Chrome > 36', 'IE > 8', 'iOS > 6', 'Safari > 6' ]))
 		.pipe(flags.u ? $.util.noop() : $.cssnano())
 		.pipe(gulp.dest(paths.output.less));
 });
