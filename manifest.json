@@ -1,0 +1,15 @@
+{
+  "lang": "en",
+  "background_color": "#eceff1",
+  "name": "Weather",
+  "short_name": "Weather",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "assets/favicon/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "orientation": "portrait"
+}

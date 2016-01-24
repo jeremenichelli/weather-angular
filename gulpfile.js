@@ -101,3 +101,5 @@ gulp.task('build:html', [ 'build:less' ], function() {
 });
 
 gulp.task('build', [ 'build:less', 'build:app', 'build:html', 'build:views' ]);
+
+gulp.task('default', [ 'build' ]);
